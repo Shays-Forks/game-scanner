@@ -23,7 +23,7 @@ pub fn executable() -> Result<PathBuf> {
 /// Will return `Err` if games are not found
 pub fn games() -> Result<Vec<Game>> {
     let launcher_executable = get_launcher_executable()?;
-    let manifests_path = get_manifests_path();
+    let manifests_path = get_manifests_path()?;
 
     db::read_all(&manifests_path, &launcher_executable)
 }
@@ -33,7 +33,7 @@ pub fn games() -> Result<Vec<Game>> {
 /// Will return `Err` if the id is not found
 pub fn find(id: &str) -> Result<Game> {
     let launcher_executable = get_launcher_executable()?;
-    let manifests_path = get_manifests_path();
+    let manifests_path = get_manifests_path()?;
 
     db::read(id, &manifests_path, &launcher_executable)
 }

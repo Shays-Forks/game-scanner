@@ -16,7 +16,7 @@ pub fn get_launcher_path() -> Result<PathBuf> {
     ));
 }
 
-pub fn get_manifests_path(launcher_path: &Path) -> Result<PathBuf> {
+pub fn get_manifests_path(_launcher_path: &Path) -> Result<PathBuf> {
     return Err(Error::new(
         ErrorKind::InvalidLauncher,
         "launcher not supported",
